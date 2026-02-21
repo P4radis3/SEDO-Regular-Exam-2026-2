@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Restore Dependencies') {
             when {
-                branch: "main"
+                branch "main"
             }
             steps {
                 sh 'dotnet restore'
@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build') {
             when {
-                branch: "main"
+                branch "main"
             }
             steps {
                 sh 'dotnet build --no-restore'
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Test') {
             when {
-                branch: "main"
+                branch "main"
             }
             steps {
                 sh 'dotnet test --no-build --verbosity normal'
